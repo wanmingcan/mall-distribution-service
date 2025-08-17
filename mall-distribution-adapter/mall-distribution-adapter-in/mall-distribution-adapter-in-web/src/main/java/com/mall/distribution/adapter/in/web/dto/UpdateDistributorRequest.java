@@ -1,0 +1,49 @@
+package com.mall.distribution.adapter.in.web.dto;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * 更新分销商请求
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Schema(description = "更新分销商请求")
+public class UpdateDistributorRequest {
+    
+    @NotBlank(message = "分销商名称不能为空")
+    @Schema(description = "分销商名称", example = "张三")
+    private String distributorName;
+    
+    @NotBlank(message = "手机号不能为空")
+    @Schema(description = "手机号", example = "13800138000")
+    private String phone;
+    
+    @NotBlank(message = "身份证号不能为空")
+    @Schema(description = "身份证号", example = "110101199001011234")
+    private String idCard;
+    
+    @NotBlank(message = "身份证正面照不能为空")
+    @Schema(description = "身份证正面照", example = "http://example.com/id_front.jpg")
+    private String idCardFront;
+    
+    @NotBlank(message = "身份证反面照不能为空")
+    @Schema(description = "身份证反面照", example = "http://example.com/id_back.jpg")
+    private String idCardBack;
+    
+    @NotBlank(message = "银行卡号不能为空")
+    @Schema(description = "银行卡号", example = "6222021234567890123")
+    private String bankCard;
+    
+    @NotBlank(message = "银行名称不能为空")
+    @Schema(description = "银行名称", example = "中国工商银行")
+    private String bankName;
+    
+    @NotBlank(message = "开户行不能为空")
+    @Schema(description = "开户行", example = "中国工商银行北京分行")
+    private String bankBranch;
+}

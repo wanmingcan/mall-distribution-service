@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mall.distribution.adapter.out.persistence.mapper.CommissionCashMapper">
+
+    <!-- 根据查询条件查找提现申请列表 -->
+    <select id="findByQuery" resultType="com.mall.distribution.adapter.out.persistence.entity.CommissionCashEntity">
+        SELECT * FROM distribution_commission_cash
+        <where>
+            <if test="query.cashId != null">
+                AND cash_id = #{query.cashId}
+            </if>
+            <if test="query.distributorId != null">
+                AND distributor_id = #{query.distributorId}
+            </if>
+            <if test="query.cashStatus != null">
+                AND cash_status = #{query.cashStatus}
+            </if>
+        </where>
+        ORDER BY created_at DESC
+        <if test="query.pageNum != null and query.pageSize != null">
+            LIMIT #{query.pageSize} OFFSET #{(query.pageNum - 1) * query.pageSize}
+        </if>
+    </select>
+
+</mapper>

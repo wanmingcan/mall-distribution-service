@@ -1,0 +1,20 @@
+[INFO] Scanning for projects...
+[ERROR] [ERROR] Some problems were encountered while processing the POMs:
+[FATAL] Non-parseable POM /Users/wuyunbin/IdeaProjects/mall/mall-distribution-service/mall-distribution-adapter/mall-distribution-adapter-out/mall-distribution-adapter-out-persistence/pom.xml: expected START_TAG or END_TAG not TEXT (position: TEXT seen ...abase Driver (MySQL example) -->\n       dependency>\n            <g... @25:15)  @ line 25, column 15
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ line 71, column 21
+[ERROR] 'dependencies.dependency.version' for com.google.guava:guava:jar is missing. @ line 30, column 21
+ @ 
+[ERROR] The build could not read 2 projects -> [Help 1]
+[ERROR]   
+[ERROR]   The project  (/Users/wuyunbin/IdeaProjects/mall/mall-distribution-service/mall-distribution-adapter/mall-distribution-adapter-out/mall-distribution-adapter-out-persistence/pom.xml) has 1 error
+[ERROR]     Non-parseable POM /Users/wuyunbin/IdeaProjects/mall/mall-distribution-service/mall-distribution-adapter/mall-distribution-adapter-out/mall-distribution-adapter-out-persistence/pom.xml: expected START_TAG or END_TAG not TEXT (position: TEXT seen ...abase Driver (MySQL example) -->\n       dependency>\n            <g... @25:15)  @ line 25, column 15 -> [Help 2]
+[ERROR]   
+[ERROR]   The project com.mall:mall-distribution-common:0.0.1-SNAPSHOT (/Users/wuyunbin/IdeaProjects/mall/mall-distribution-service/mall-distribution-common/pom.xml) has 1 error
+[ERROR]     'dependencies.dependency.version' for com.google.guava:guava:jar is missing. @ line 30, column 21
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+[ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/ModelParseException

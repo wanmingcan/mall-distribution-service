@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mall.distribution.adapter.out.persistence.mapper.DistributorMapper">
+
+    <!-- 根据用户ID查找分销商 -->
+    <select id="findByUserId" resultType="com.mall.distribution.adapter.out.persistence.entity.DistributorEntity">
+        SELECT * FROM distributor WHERE user_id = #{userId}
+    </select>
+
+    <!-- 检查用户是否已是分销商 -->
+    <select id="existsByUserId" resultType="boolean">
+        SELECT COUNT(1) > 0 FROM distributor WHERE user_id = #{userId}
+    </select>
+
+    <!-- 检查手机号是否已存在 -->
+    <select id="existsByPhone" resultType="boolean">
+        SELECT COUNT(1) > 0 FROM distributor WHERE phone = #{phone}
+    </select>
+
+    <!-- 检查手机号是否已被其他分销商使用 -->
+    <select id="existsByPhoneAndIdNot" resultType="boolean">
+        SELECT COUNT(1) > 0 FROM distributor 
+        WHERE phone = #{phone} AND distributor_id != #{distributorId}
+    </select>
+
+    <!-- 检查身份证号是否已存在 -->
+    <select id="existsByIdCard" resultType="boolean">
+        SELECT COUNT(1) > 0 FROM distributor WHERE id_card = #{idCard}
+    </select>
+
+    <!-- 检查身份证号是否已被其他分销商使用 -->
+    <select id="existsByIdCardAndIdNot" resultType="boolean">
+        SELECT COUNT(1) > 0 FROM distributor 
+        WHERE id_card = #{idCard} AND distributor_id != #{distributorId}
+    </select>
+
+    <!-- 根据查询条件查找分销商列表 -->
+    <select id="findByQuery" resultType="com.mall.distribution.adapter.out.persistence.entity.DistributorEntity">
+        SELECT * FROM distributor
+        <where>
+            <if test="query.distributorId != null">
+                AND distributor_id = #{query.distributorId}
+            </if>
+            <if test="query.userId != null">
+                AND user_id = #{query.userId}
+            </if>
+            <if test="query.distributorName != null and query.distributorName != ''">
+                AND distributor_name LIKE CONCAT('%', #{query.distributorName}, '%')
+            </if>
+            <if test="query.phone != null and query.phone != ''">
+                AND phone LIKE CONCAT('%', #{query.phone}, '%')
+            </if>
+            <if test="query.status != null">
+                AND status = #{query.status}
+            </if>
+        </where>
+        ORDER BY created_at DESC
+        <if test="query.pageNum != null and query.pageSize != null">
+            LIMIT #{query.pageSize} OFFSET #{(query.pageNum - 1) * query.pageSize}
+        </if>
+    </select>
+
+</mapper>
