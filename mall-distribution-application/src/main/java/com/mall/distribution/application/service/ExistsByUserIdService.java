@@ -4,6 +4,7 @@ import com.mall.distribution.application.port.ExistsByUserIdUseCase;
 import org.springframework.stereotype.Service;
 /**
  * 检查用户是否已是分销商
+ * @author wanmingcan
  */
 @Service
 public class ExistsByUserIdService implements ExistsByUserIdUseCase {

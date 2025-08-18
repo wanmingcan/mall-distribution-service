@@ -5,6 +5,7 @@ import com.mall.distribution.domain.model.join.DistributorJoin;
 public interface DistributorJoinFindByIdUseCase {
     /**
      * 根据ID查找申请
+     * @author wanmingcan
      */
     DistributorJoin findById(Long joinId);
 }

@@ -5,6 +5,7 @@ import com.mall.distribution.domain.model.distributor.Distributor;
 import org.springframework.stereotype.Service;
 /**
  * 根据用户ID查找分销商应用服务
+ * @author wanmingcan
  */
 @Service
 public class DistributorFindByUserIdService implements DistributorFindByUserIdUseCase {

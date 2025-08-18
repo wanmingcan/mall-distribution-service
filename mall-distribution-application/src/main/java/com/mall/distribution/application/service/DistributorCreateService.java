@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 创建分销商应用服务
+ * @author wanmingcan
  */
 @Service
 public class DistributorCreateService implements DistributorCreateUseCase {

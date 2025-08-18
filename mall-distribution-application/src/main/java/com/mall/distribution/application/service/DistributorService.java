@@ -2,7 +2,6 @@ package com.mall.distribution.application.service;
 
 import com.mall.distribution.application.command.CreateDistributorCommand;
 import com.mall.distribution.application.command.UpdateDistributorCommand;
-import com.mall.distribution.application.port.DistributorUseCase;
 import com.mall.distribution.application.query.DistributorQuery;
 import com.mall.distribution.common.exception.BusinessException;
 
@@ -16,6 +15,7 @@ import java.math.BigDecimal;
 
 /**
  * 分销商应用服务
+ * @author wanmingcan
  */
 @Service
 @RequiredArgsConstructor

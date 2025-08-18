@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 创建佣金提现申请应用服务
+ * @author wanmingcan
  */
 @Service
 public class CommissionCashCreateService implements CommissionCashCreateUseCase {

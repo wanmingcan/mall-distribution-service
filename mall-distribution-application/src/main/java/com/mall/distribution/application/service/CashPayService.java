@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 支付提现申请应用服务
+ * @author wanmingcan
  */
 @Service
 public class CashPayService implements CashPayUseCase {

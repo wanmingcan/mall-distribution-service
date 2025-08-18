@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 审核通过申请应用服务
+ * @author wanmingcan
  */
 @Service
 public class JoinApproveService implements JoinApproveUseCase {

@@ -1,7 +1,6 @@
 package com.mall.distribution.application.service;
 
 import com.mall.distribution.application.command.CreateDistributorJoinCommand;
-import com.mall.distribution.application.port.DistributorJoinUseCase;
 import com.mall.distribution.application.query.DistributorJoinQuery;
 import com.mall.distribution.common.exception.BusinessException;
 
@@ -15,6 +14,7 @@ import java.util.List;
 
 /**
  * 分销商申请应用服务
+ * @author wanmingcan
  */
 @Service
 @RequiredArgsConstructor
