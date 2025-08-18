@@ -1,8 +1,6 @@
 package com.mall.distribution.application.service;
 
 import com.mall.distribution.application.command.CreateCommissionCashCommand;
-import com.mall.distribution.application.port.CommissionCashUseCase;
-import com.mall.distribution.application.port.DistributorUseCase;
 import com.mall.distribution.application.query.CommissionCashQuery;
 import com.mall.distribution.common.enums.Resp;
 import com.mall.distribution.common.exception.BusinessException;
@@ -18,6 +16,7 @@ import java.util.List;
 
 /**
  * 佣金提现应用服务
+ * @author wanmingcan
  */
 @Service
 @RequiredArgsConstructor

@@ -5,6 +5,7 @@ import com.mall.distribution.application.command.CreateDistributorCommand;
 public interface DistributorCreateUseCase {
     /**
      * 创建分销商
+     * @author wanmingcan
      */
     Long createDistributor(CreateDistributorCommand command);
 }

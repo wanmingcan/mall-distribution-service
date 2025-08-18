@@ -8,6 +8,7 @@ import java.util.List;
 public interface CommissionCashesFindUseCase {
     /**
      * 查询提现申请列表
+     * @author wanmingcan
      */
     List<CommissionCash> findCommissionCashes(CommissionCashQuery query);
 }

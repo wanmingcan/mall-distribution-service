@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 拒绝提现申请应用服务
+ * @author wanmingcan
  */
 @Service
 public class CashRejectService implements CashRejectUseCase {

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 更新分销商应用服务
+ * @author wanmingcan
  */
 @Service
 public class DistributorUpdateServive implements DistributorUpdateUseCase {

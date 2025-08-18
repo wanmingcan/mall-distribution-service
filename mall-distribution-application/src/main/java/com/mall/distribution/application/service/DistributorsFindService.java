@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 /**
  * 查询分销商列表应用服务
+ * @author wanmingcan
  */
 @Service
 public class DistributorsFindService implements DistributorsFindUseCase {

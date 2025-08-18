@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 
 /**
  * 更新累计佣金应用服务
+ * @author wanmingcan
  */
 @Service
 public class TotalCommissionUpdateService implements TotalCommissionUpdateUseCase{

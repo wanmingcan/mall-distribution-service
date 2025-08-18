@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 /**
  * 查询提现申请列表应用服务
+ * @author wanmingcan
  */
 @Service
 public class CommissionCashesFindService implements CommissionCashesFindUseCase {

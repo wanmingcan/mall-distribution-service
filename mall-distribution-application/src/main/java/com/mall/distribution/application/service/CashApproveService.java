@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 审核通过提现申请应用服务
+ * @author wanmingcan
  */
 @Service
 public class CashApproveService implements CashApproveUseCase {

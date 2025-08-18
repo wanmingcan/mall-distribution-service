@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 根据ID查找申请应用服务
+ * @author wanmingcan
  */
 @Service
 public class DistributorFindByIdService implements DistributorFindByIdUseCase {

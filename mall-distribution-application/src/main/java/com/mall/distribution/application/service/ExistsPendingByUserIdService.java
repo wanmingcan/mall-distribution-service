@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 检查用户是否有待审核的申请应用服务
+ * @author wanmingcan
  */
 @Service
 public class ExistsPendingByUserIdService implements ExistsPendingByUserIdUseCase{

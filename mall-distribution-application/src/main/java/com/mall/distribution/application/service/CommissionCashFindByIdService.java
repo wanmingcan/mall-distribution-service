@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 根据ID查找提现申请应用服务
+ * @author wanmingcan
  */
 @Service
 public class CommissionCashFindByIdService implements CommissionCashFindByIdUseCase {

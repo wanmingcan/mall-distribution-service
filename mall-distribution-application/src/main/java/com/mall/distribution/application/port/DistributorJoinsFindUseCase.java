@@ -8,6 +8,7 @@ import java.util.List;
 public interface DistributorJoinsFindUseCase {
     /**
      * 查询申请列表
+     * @author wanmingcan
      */
     List<DistributorJoin> findDistributorJoins(DistributorJoinQuery query);
 }
