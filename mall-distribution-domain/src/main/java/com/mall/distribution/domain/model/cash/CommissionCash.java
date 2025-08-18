@@ -1,5 +1,7 @@
 package com.mall.distribution.domain.model.cash;
 
+
+
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -11,7 +13,7 @@ import java.time.LocalDateTime;
  */
 @Data
 public class CommissionCash {
-    
+
     private Long cashId;
     private String accountType;
     private LocalDateTime addTime;
@@ -36,7 +38,7 @@ public class CommissionCash {
     private LocalDateTime updatedAt;
     private Long updatedBy;
     private Boolean isDeleted;
-    
+
     /**
      * 创建佣金提现申请
      */
@@ -61,10 +63,10 @@ public class CommissionCash {
         cash.setAddTime(LocalDateTime.now());
         cash.setCreatedAt(LocalDateTime.now());
         cash.setIsDeleted(false);
-        
+
         return cash;
     }
-    
+
     /**
      * 审核通过
      */
@@ -74,7 +76,7 @@ public class CommissionCash {
         this.adminName = adminName;
         this.updatedAt = LocalDateTime.now();
     }
-    
+
     /**
      * 审核拒绝
      */
@@ -85,7 +87,7 @@ public class CommissionCash {
         this.refuseReason = refuseReason;
         this.updatedAt = LocalDateTime.now();
     }
-    
+
     /**
      * 标记为已支付
      */
@@ -95,21 +97,21 @@ public class CommissionCash {
         this.payTime = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
-    
+
     /**
      * 检查是否可以审核
      */
     public boolean canProcess() {
         return this.state == 0; // 只有待处理状态才能审核
     }
-    
+
     /**
      * 检查是否可以支付
      */
     public boolean canPay() {
         return this.state == 1; // 只有已通过状态才能支付
     }
-    
+
     /**
      * 生成提现单号
      */
