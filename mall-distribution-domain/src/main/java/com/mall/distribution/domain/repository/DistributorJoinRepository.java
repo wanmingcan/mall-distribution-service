@@ -1,5 +1,6 @@
 package com.mall.distribution.domain.repository;
 
+import com.mall.distribution.application.query.DistributorJoinQuery;
 import com.mall.distribution.domain.model.join.DistributorJoin;
 
 import java.util.List;
@@ -39,6 +40,10 @@ public interface DistributorJoinRepository {
      * 检查会员是否已申请
      */
     boolean existsByMemberId(Long memberId);
+
+    Optional<DistributorJoin> findById(Long joinId);
+
+    List<DistributorJoin> findByQuery(DistributorJoinQuery query);
 
     boolean existsPendingByUserId(Long userId);
 

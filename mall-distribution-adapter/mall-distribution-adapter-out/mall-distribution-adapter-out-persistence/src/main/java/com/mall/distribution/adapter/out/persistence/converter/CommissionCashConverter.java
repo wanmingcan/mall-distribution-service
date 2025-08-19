@@ -1,7 +1,8 @@
 package com.mall.distribution.adapter.out.persistence.converter;
 
 import com.mall.distribution.adapter.out.persistence.entity.CommissionCashEntity;
-import com.mall.distribution.domain.commission.CommissionCash;
+
+import com.mall.distribution.domain.model.cash.CommissionCash;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class CommissionCashConverter {
-    
+
     /**
      * 领域对象转实体
      */
@@ -17,7 +18,7 @@ public class CommissionCashConverter {
         if (commissionCash == null) {
             return null;
         }
-        
+
         CommissionCashEntity entity = new CommissionCashEntity();
         entity.setCashId(commissionCash.getCashId());
         entity.setDistributorId(commissionCash.getDistributorId());
@@ -36,10 +37,10 @@ public class CommissionCashConverter {
         entity.setCreatedBy(commissionCash.getCreatedBy());
         entity.setUpdatedAt(commissionCash.getUpdatedAt());
         entity.setUpdatedBy(commissionCash.getUpdatedBy());
-        
+
         return entity;
     }
-    
+
     /**
      * 实体转领域对象
      */
@@ -47,7 +48,7 @@ public class CommissionCashConverter {
         if (entity == null) {
             return null;
         }
-        
+
         return new CommissionCash(
             entity.getCashId(),
             entity.getDistributorId(),

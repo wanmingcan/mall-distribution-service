@@ -49,7 +49,7 @@ CREATE TABLE `distribution_commission_cash` (
   `is_deleted` tinyint DEFAULT '0',
   PRIMARY KEY (`cash_id`),
   UNIQUE KEY `UK_1mp8vqwaxmgslqxw0tjx7ablv` (`cash_sn`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +72,7 @@ CREATE TABLE `distribution_goods` (
   `updated_by` bigint DEFAULT NULL,
   `is_deleted` tinyint DEFAULT '0',
   PRIMARY KEY (`common_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=162 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=162 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,7 +102,7 @@ CREATE TABLE `distribution_orders` (
   `updated_by` bigint DEFAULT NULL,
   `is_deleted` tinyint DEFAULT '0',
   PRIMARY KEY (`distribution_orders_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +121,7 @@ CREATE TABLE `distribution_store_site` (
   `updated_by` bigint DEFAULT NULL,
   `is_deleted` tinyint DEFAULT '0',
   PRIMARY KEY (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -144,7 +144,7 @@ CREATE TABLE `distribution_store_stat` (
   `updated_by` bigint DEFAULT NULL,
   `is_deleted` tinyint DEFAULT '0',
   PRIMARY KEY (`stat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,7 +185,7 @@ CREATE TABLE `distributor` (
   `updated_by` bigint DEFAULT NULL,
   `is_deleted` tinyint DEFAULT '0',
   PRIMARY KEY (`distributor_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,7 +213,7 @@ CREATE TABLE `distributor_commission_log` (
   `updated_by` bigint DEFAULT NULL,
   `is_deleted` tinyint DEFAULT '0',
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,7 +235,7 @@ CREATE TABLE `distributor_favorites` (
   `updated_by` bigint DEFAULT NULL,
   `is_deleted` tinyint DEFAULT '0',
   PRIMARY KEY (`distributor_favorites_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -262,7 +262,7 @@ CREATE TABLE `distributor_goods` (
   `updated_by` bigint DEFAULT NULL,
   `is_deleted` tinyint DEFAULT '0',
   PRIMARY KEY (`distributor_goods_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -294,7 +294,7 @@ CREATE TABLE `distributor_join` (
   `updated_by` bigint DEFAULT NULL,
   `is_deleted` tinyint DEFAULT '0',
   PRIMARY KEY (`member_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=529 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=529 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

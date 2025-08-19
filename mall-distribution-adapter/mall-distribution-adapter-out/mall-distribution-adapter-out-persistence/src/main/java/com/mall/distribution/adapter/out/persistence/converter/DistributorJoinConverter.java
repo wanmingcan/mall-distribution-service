@@ -1,7 +1,8 @@
 package com.mall.distribution.adapter.out.persistence.converter;
 
 import com.mall.distribution.adapter.out.persistence.entity.DistributorJoinEntity;
-import com.mall.distribution.domain.distributor.DistributorJoin;
+
+import com.mall.distribution.domain.model.join.DistributorJoin;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class DistributorJoinConverter {
-    
+
     /**
      * 领域对象转实体
      */
@@ -17,7 +18,7 @@ public class DistributorJoinConverter {
         if (distributorJoin == null) {
             return null;
         }
-        
+
         DistributorJoinEntity entity = new DistributorJoinEntity();
         entity.setJoinId(distributorJoin.getJoinId());
         entity.setUserId(distributorJoin.getUserId());
@@ -38,10 +39,10 @@ public class DistributorJoinConverter {
         entity.setCreatedBy(distributorJoin.getCreatedBy());
         entity.setUpdatedAt(distributorJoin.getUpdatedAt());
         entity.setUpdatedBy(distributorJoin.getUpdatedBy());
-        
+
         return entity;
     }
-    
+
     /**
      * 实体转领域对象
      */
@@ -49,7 +50,7 @@ public class DistributorJoinConverter {
         if (entity == null) {
             return null;
         }
-        
+
         return new DistributorJoin(
             entity.getJoinId(),
             entity.getUserId(),

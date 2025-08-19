@@ -4,8 +4,9 @@ import com.mall.distribution.adapter.out.persistence.converter.CommissionCashCon
 import com.mall.distribution.adapter.out.persistence.entity.CommissionCashEntity;
 import com.mall.distribution.adapter.out.persistence.mapper.CommissionCashMapper;
 import com.mall.distribution.application.query.CommissionCashQuery;
-import com.mall.distribution.domain.commission.CommissionCash;
-import com.mall.distribution.domain.commission.CommissionCashRepository;
+
+import com.mall.distribution.domain.model.cash.CommissionCash;
+import com.mall.distribution.domain.repository.CommissionCashRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -19,14 +20,14 @@ import java.util.stream.Collectors;
 @Repository
 @RequiredArgsConstructor
 public class CommissionCashRepositoryImpl implements CommissionCashRepository {
-    
+
     private final CommissionCashMapper commissionCashMapper;
     private final CommissionCashConverter commissionCashConverter;
-    
+
     @Override
-    public void save(CommissionCash commissionCash) {
+    public CommissionCash save(CommissionCash commissionCash) {
         CommissionCashEntity entity = commissionCashConverter.toEntity(commissionCash);
-        
+
         if (entity.getCashId() == null) {
             // 新增
             commissionCashMapper.insert(entity);
@@ -36,14 +37,50 @@ public class CommissionCashRepositoryImpl implements CommissionCashRepository {
             // 更新
             commissionCashMapper.updateById(entity);
         }
+        return commissionCash;
     }
-    
+
     @Override
     public Optional<CommissionCash> findById(Long cashId) {
         CommissionCashEntity entity = commissionCashMapper.selectById(cashId);
         return Optional.ofNullable(commissionCashConverter.toDomain(entity));
     }
-    
+
+    @Override
+    public Optional<CommissionCash> findByCashSn(String cashSn) {
+        return Optional.empty();
+    }
+
+    @Override
+    public List<CommissionCash> findByDistributorId(Integer distributorId) {
+        return List.of();
+    }
+
+    @Override
+    public List<CommissionCash> findByMemberId(Integer memberId) {
+        return List.of();
+    }
+
+    @Override
+    public List<CommissionCash> findByState(Integer state) {
+        return List.of();
+    }
+
+    @Override
+    public List<CommissionCash> findAll() {
+        return List.of();
+    }
+
+    @Override
+    public boolean existsByCashSn(String cashSn) {
+        return false;
+    }
+
+    @Override
+    public void deleteById(Long cashId) {
+
+    }
+
     @Override
     public List<CommissionCash> findByQuery(CommissionCashQuery query) {
         List<CommissionCashEntity> entities = commissionCashMapper.findByQuery(query);

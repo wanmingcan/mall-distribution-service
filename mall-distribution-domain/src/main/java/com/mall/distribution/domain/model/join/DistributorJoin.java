@@ -10,8 +10,21 @@ import java.time.LocalDateTime;
  */
 @Data
 public class DistributorJoin {
-    
+
     private Long memberId;
+    private String applicantName;
+    private String phone;
+    private String idCard;
+    private String idCardFront;
+    private String idCardBack;
+    private String bankCard;
+    private String bankName;
+    private String bankBranch;
+    private String reason;
+    private Integer auditStatus;
+    private LocalDateTime auditTime;
+    private String auditBy;
+    private String auditRemark;
     private String accountType;
     private String bankAccountName;
     private String bankAccountNumber;
@@ -26,12 +39,21 @@ public class DistributorJoin {
     private String payPerson;
     private String realName;
     private Integer state; // 0-待审核, 1-已通过, 2-已拒绝
+    private Long JoinId;
+    private Long UserId;
     private LocalDateTime createdAt;
-    private Long createdBy;
+    private String createdBy;
     private LocalDateTime updatedAt;
-    private Long updatedBy;
+    private String updatedBy;
     private Boolean isDeleted;
-    
+
+    public DistributorJoin(Long joinId, Long userId, String applicantName, String phone, String idCard, String idCardFront, String idCardBack, String bankCard, String bankName, String bankBranch, String reason, Integer auditStatus, LocalDateTime auditTime, String auditBy, String auditRemark, LocalDateTime createdAt, String createdBy, LocalDateTime updatedAt, String updatedBy) {
+    }
+
+    public DistributorJoin() {
+
+    }
+
     /**
      * 创建分销商申请
      */
@@ -52,10 +74,14 @@ public class DistributorJoin {
         join.setJoinInTime(LocalDateTime.now());
         join.setCreatedAt(LocalDateTime.now());
         join.setIsDeleted(false);
-        
+
         return join;
     }
-    
+
+    public static DistributorJoin create(Long userId, String applicantName, String phone, String idCard, String idCardFront, String idCardBack, String bankCard, String bankName, String bankBranch, String reason, String createdBy) {
+        return null;
+    }
+
     /**
      * 审核通过
      */
@@ -64,7 +90,7 @@ public class DistributorJoin {
         this.handleTime = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
-    
+
     /**
      * 审核拒绝
      */
@@ -73,7 +99,7 @@ public class DistributorJoin {
         this.handleTime = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
-    
+
     /**
      * 更新身份证信息
      */
@@ -83,7 +109,7 @@ public class DistributorJoin {
         this.idCartHandImage = idCartHandImage;
         this.updatedAt = LocalDateTime.now();
     }
-    
+
     /**
      * 检查是否可以审核
      */

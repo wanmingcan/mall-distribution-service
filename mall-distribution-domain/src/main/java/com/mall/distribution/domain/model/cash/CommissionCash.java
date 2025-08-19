@@ -1,7 +1,5 @@
 package com.mall.distribution.domain.model.cash;
 
-
-
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -15,6 +13,16 @@ import java.time.LocalDateTime;
 public class CommissionCash {
 
     private Long cashId;
+    private BigDecimal cashAmount;
+    private String bankCard;
+    private String bankName;
+    private String bankBranch;
+    private Integer cashStatus;
+    private LocalDateTime auditTime;
+    private String auditBy;
+    private String auditRemark;
+    private String paymentNo;
+    private String paidBy;
     private String accountType;
     private LocalDateTime addTime;
     private Integer adminId;
@@ -24,7 +32,7 @@ public class CommissionCash {
     private String bankAccountNumber;
     private String bindPhone;
     private String cashSn;
-    private Integer distributorId;
+    private Long distributorId;
     private String idCartNumber;
     private Integer memberId;
     private String memberName;
@@ -34,15 +42,22 @@ public class CommissionCash {
     private String refuseReason;
     private Integer state; // 0-待处理, 1-已通过, 2-已拒绝, 3-已支付
     private LocalDateTime createdAt;
-    private Long createdBy;
+    private String createdBy;
     private LocalDateTime updatedAt;
-    private Long updatedBy;
-    private Boolean isDeleted;
+    private String updatedBy;
+    private String isDeleted;
+
+    public CommissionCash(Long cashId, Long distributorId, BigDecimal cashAmount, String bankCard, String bankName, String bankBranch, Integer cashStatus, LocalDateTime auditTime, String auditBy, String auditRemark, LocalDateTime payTime, String paymentNo, String paidBy, LocalDateTime createdAt, String createdBy, LocalDateTime updatedAt, String updatedBy) {
+    }
+
+    public CommissionCash() {
+
+    }
 
     /**
      * 创建佣金提现申请
      */
-    public static CommissionCash create(Integer distributorId, Integer memberId, String memberName,
+    public static CommissionCash create(Long distributorId, Integer memberId, String memberName,
                                       BigDecimal amount, String accountType, String bankAccountName,
                                       String bankAccountNumber, String bindPhone, String idCartNumber,
                                       String realName, String payPerson) {
@@ -62,7 +77,7 @@ public class CommissionCash {
         cash.setState(0); // 待处理
         cash.setAddTime(LocalDateTime.now());
         cash.setCreatedAt(LocalDateTime.now());
-        cash.setIsDeleted(false);
+        cash.setIsDeleted("0");
 
         return cash;
     }

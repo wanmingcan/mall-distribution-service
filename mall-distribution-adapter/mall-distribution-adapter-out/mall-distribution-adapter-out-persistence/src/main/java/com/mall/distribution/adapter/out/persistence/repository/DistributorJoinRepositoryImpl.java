@@ -4,8 +4,9 @@ import com.mall.distribution.adapter.out.persistence.converter.DistributorJoinCo
 import com.mall.distribution.adapter.out.persistence.entity.DistributorJoinEntity;
 import com.mall.distribution.adapter.out.persistence.mapper.DistributorJoinMapper;
 import com.mall.distribution.application.query.DistributorJoinQuery;
-import com.mall.distribution.domain.distributor.DistributorJoin;
-import com.mall.distribution.domain.distributor.DistributorJoinRepository;
+
+import com.mall.distribution.domain.model.join.DistributorJoin;
+import com.mall.distribution.domain.repository.DistributorJoinRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -19,14 +20,14 @@ import java.util.stream.Collectors;
 @Repository
 @RequiredArgsConstructor
 public class DistributorJoinRepositoryImpl implements DistributorJoinRepository {
-    
+
     private final DistributorJoinMapper distributorJoinMapper;
     private final DistributorJoinConverter distributorJoinConverter;
-    
+
     @Override
-    public void save(DistributorJoin distributorJoin) {
+    public DistributorJoin save(DistributorJoin distributorJoin) {
         DistributorJoinEntity entity = distributorJoinConverter.toEntity(distributorJoin);
-        
+
         if (entity.getJoinId() == null) {
             // 新增
             distributorJoinMapper.insert(entity);
@@ -36,14 +37,40 @@ public class DistributorJoinRepositoryImpl implements DistributorJoinRepository 
             // 更新
             distributorJoinMapper.updateById(entity);
         }
+        return distributorJoin;
     }
-    
+
+    @Override
+    public Optional<DistributorJoin> findByMemberId(Long memberId) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<DistributorJoin> findByIdCartNumber(String idCartNumber) {
+        return Optional.empty();
+    }
+
+    @Override
+    public List<DistributorJoin> findAll() {
+        return List.of();
+    }
+
+    @Override
+    public List<DistributorJoin> findByState(Integer state) {
+        return List.of();
+    }
+
+    @Override
+    public boolean existsByMemberId(Long memberId) {
+        return false;
+    }
+
     @Override
     public Optional<DistributorJoin> findById(Long joinId) {
         DistributorJoinEntity entity = distributorJoinMapper.selectById(joinId);
         return Optional.ofNullable(distributorJoinConverter.toDomain(entity));
     }
-    
+
     @Override
     public List<DistributorJoin> findByQuery(DistributorJoinQuery query) {
         List<DistributorJoinEntity> entities = distributorJoinMapper.findByQuery(query);
@@ -51,9 +78,19 @@ public class DistributorJoinRepositoryImpl implements DistributorJoinRepository 
             .map(distributorJoinConverter::toDomain)
             .collect(Collectors.toList());
     }
-    
+
     @Override
     public boolean existsPendingByUserId(Long userId) {
         return distributorJoinMapper.existsPendingByUserId(userId);
+    }
+
+    @Override
+    public boolean existsByIdCartNumber(String idCartNumber) {
+        return false;
+    }
+
+    @Override
+    public void deleteByMemberId(Long memberId) {
+
     }
 }

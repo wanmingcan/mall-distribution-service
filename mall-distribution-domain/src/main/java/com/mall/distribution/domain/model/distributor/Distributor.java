@@ -16,8 +16,28 @@ import java.util.List;
  */
 @Data
 public class Distributor {
-    
+
     private DistributorId distributorId;
+    private Long userId;
+    private String distributorName;
+    private String phone;
+    private String idCard;
+    private String idCardFront;
+    private String idCardBack;
+    private String bankCard;
+    private String bankName;
+    private String bankBranch;
+    private BigDecimal commissionBalance;
+
+    /**
+     * 累计佣金
+     */
+    private BigDecimal totalCommission;
+
+    /**
+     * 状态 (0-禁用, 1-启用)
+     */
+    private Integer status;
     private String accountType;
     private String bankAccountName;
     private String bankAccountNumber;
@@ -42,14 +62,21 @@ public class Distributor {
     private Integer state;
     private BigDecimal unpayCommission;
     private LocalDateTime createdAt;
-    private Long createdBy;
+    private String createdBy;
     private LocalDateTime updatedAt;
-    private Long updatedBy;
+    private String updatedBy;
     private Boolean isDeleted;
-    
+
     // 领域事件列表
     private List<Object> domainEvents = new ArrayList<>();
-    
+
+    public Distributor(DistributorId distributorId, Long userId, String distributorName, String phone, String idCard, String idCardFront, String idCardBack, String bankCard, String bankName, String bankBranch, BigDecimal commissionBalance, BigDecimal totalCommission, Integer status, LocalDateTime createdAt, String createdBy, LocalDateTime updatedAt, String updatedBy) {
+    }
+
+    public Distributor() {
+
+    }
+
     /**
      * 创建分销商
      */
@@ -77,13 +104,13 @@ public class Distributor {
         distributor.setJoinInTime(LocalDateTime.now());
         distributor.setCreatedAt(LocalDateTime.now());
         distributor.setIsDeleted(false);
-        
+
         // 添加领域事件
         distributor.addDomainEvent(new DistributorCreatedEvent(distributor.getDistributorId()));
-        
+
         return distributor;
     }
-    
+
     /**
      * 更新分销商信息
      */
@@ -97,11 +124,11 @@ public class Distributor {
         this.realName = realName;
         this.payPerson = payPerson;
         this.updatedAt = LocalDateTime.now();
-        
+
         // 添加领域事件
         this.addDomainEvent(new DistributorUpdatedEvent(this.distributorId));
     }
-    
+
     /**
      * 更新身份证信息
      */
@@ -111,7 +138,7 @@ public class Distributor {
         this.idCartHandImage = idCartHandImage;
         this.updatedAt = LocalDateTime.now();
     }
-    
+
     /**
      * 更新状态
      */
@@ -119,7 +146,7 @@ public class Distributor {
         this.state = state;
         this.updatedAt = LocalDateTime.now();
     }
-    
+
     /**
      * 增加可用佣金
      */
@@ -127,12 +154,12 @@ public class Distributor {
         if (amount.compareTo(BigDecimal.ZERO) > 0) {
             this.commissionAvailable = this.commissionAvailable.add(amount);
             this.updatedAt = LocalDateTime.now();
-            
+
             // 添加领域事件
             this.addDomainEvent(new CommissionUpdatedEvent(this.distributorId, amount, "ADD_AVAILABLE"));
         }
     }
-    
+
     /**
      * 减少可用佣金
      */
@@ -140,12 +167,12 @@ public class Distributor {
         if (amount.compareTo(BigDecimal.ZERO) > 0 && this.commissionAvailable.compareTo(amount) >= 0) {
             this.commissionAvailable = this.commissionAvailable.subtract(amount);
             this.updatedAt = LocalDateTime.now();
-            
+
             // 添加领域事件
             this.addDomainEvent(new CommissionUpdatedEvent(this.distributorId, amount, "REDUCE_AVAILABLE"));
         }
     }
-    
+
     /**
      * 冻结佣金
      */
@@ -154,12 +181,12 @@ public class Distributor {
             this.commissionAvailable = this.commissionAvailable.subtract(amount);
             this.commissionFreeze = this.commissionFreeze.add(amount);
             this.updatedAt = LocalDateTime.now();
-            
+
             // 添加领域事件
             this.addDomainEvent(new CommissionUpdatedEvent(this.distributorId, amount, "FREEZE"));
         }
     }
-    
+
     /**
      * 解冻佣金
      */
@@ -168,12 +195,12 @@ public class Distributor {
             this.commissionFreeze = this.commissionFreeze.subtract(amount);
             this.commissionAvailable = this.commissionAvailable.add(amount);
             this.updatedAt = LocalDateTime.now();
-            
+
             // 添加领域事件
             this.addDomainEvent(new CommissionUpdatedEvent(this.distributorId, amount, "UNFREEZE"));
         }
     }
-    
+
     /**
      * 更新最后登录时间
      */
@@ -181,7 +208,7 @@ public class Distributor {
         this.lastLoginTime = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
-    
+
     /**
      * 增加分销订单数量
      */
@@ -189,7 +216,7 @@ public class Distributor {
         this.distributionOrdersCount++;
         this.updatedAt = LocalDateTime.now();
     }
-    
+
     /**
      * 逻辑删除
      */
@@ -197,7 +224,7 @@ public class Distributor {
         this.isDeleted = true;
         this.updatedAt = LocalDateTime.now();
     }
-    
+
     /**
      * 恢复
      */
@@ -205,21 +232,21 @@ public class Distributor {
         this.isDeleted = false;
         this.updatedAt = LocalDateTime.now();
     }
-    
+
     /**
      * 添加领域事件
      */
     public void addDomainEvent(Object event) {
         this.domainEvents.add(event);
     }
-    
+
     /**
      * 获取领域事件
      */
     public List<Object> getDomainEvents() {
         return new ArrayList<>(this.domainEvents);
     }
-    
+
     /**
      * 清除领域事件
      */

@@ -1,8 +1,8 @@
 package com.mall.distribution.adapter.out.persistence.converter;
 
 import com.mall.distribution.adapter.out.persistence.entity.DistributorEntity;
-import com.mall.distribution.domain.distributor.Distributor;
-import com.mall.distribution.domain.distributor.DistributorId;
+import com.mall.distribution.domain.model.distributor.Distributor;
+import com.mall.distribution.domain.model.distributor.DistributorId;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class DistributorConverter {
-    
+
     /**
      * 领域对象转实体
      */
@@ -18,7 +18,7 @@ public class DistributorConverter {
         if (distributor == null) {
             return null;
         }
-        
+
         DistributorEntity entity = new DistributorEntity();
         entity.setDistributorId(distributor.getDistributorId() != null ? distributor.getDistributorId().getValue() : null);
         entity.setUserId(distributor.getUserId());
@@ -37,10 +37,10 @@ public class DistributorConverter {
         entity.setCreatedBy(distributor.getCreatedBy());
         entity.setUpdatedAt(distributor.getUpdatedAt());
         entity.setUpdatedBy(distributor.getUpdatedBy());
-        
+
         return entity;
     }
-    
+
     /**
      * 实体转领域对象
      */
@@ -48,7 +48,7 @@ public class DistributorConverter {
         if (entity == null) {
             return null;
         }
-        
+
         return new Distributor(
             new DistributorId(entity.getDistributorId()),
             entity.getUserId(),
