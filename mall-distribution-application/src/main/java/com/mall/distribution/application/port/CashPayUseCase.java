@@ -1,9 +1,9 @@
 package com.mall.distribution.application.port;
-
+/**
+ * 支付提现申请
+ * @author wanmingcan
+ */
 public interface CashPayUseCase {
-    /**
-     * 支付提现申请
-     * @author wanmingcan
-     */
+
     void payCash(Long cashId, String paymentNo, String paidBy);
 }
