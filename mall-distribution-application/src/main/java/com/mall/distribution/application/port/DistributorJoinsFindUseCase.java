@@ -4,11 +4,11 @@ import com.mall.distribution.application.query.DistributorJoinQuery;
 import com.mall.distribution.domain.model.join.DistributorJoin;
 
 import java.util.List;
-
+/**
+ * 查询申请列表
+ * @author wanmingcan
+ */
 public interface DistributorJoinsFindUseCase {
-    /**
-     * 查询申请列表
-     * @author wanmingcan
-     */
+
     List<DistributorJoin> findDistributorJoins(DistributorJoinQuery query);
 }
